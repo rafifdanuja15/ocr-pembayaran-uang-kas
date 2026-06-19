@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kas KKN — Form Pembayaran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ────────────────────────────────────────────── */
+    :root {
+      --ink:        #1a1a2e;
+      --ink-muted:  #5a5a7a;
+      --surface:    #f7f6f2;
+      --card:       #ffffff;
+      --accent:     #3d5a80;
+      --accent-light: #e8eef5;
+      --lunas:      #1a6b3c;
+      --lunas-bg:   #e6f4ec;
+      --belum:      #8b4513;
+      --belum-bg:   #fdf0e6;
+      --border:     #e2e1db;
+      --radius:     14px;
+      --shadow:     0 2px 16px rgba(26,26,46,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    header {
+      background: var(--accent);
+      padding: 32px 24px 28px;
+      text-align: center;
+    }
+    header .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+    }
+    header p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 8px;
+    }
+
+    /* ── Container ───────────────────────────────────────────── */
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 28px 20px 0;
+    }
+
+    /* ── Status board (muncul setelah nama dipilih) ─────────── */
+    .status-board {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .status-board h3 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+    .status-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .status-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 12.5px;
+    }
+    .status-item .label { color: var(--ink-muted); }
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .badge.lunas  { background: var(--lunas-bg);  color: var(--lunas); }
+    .badge.belum  { background: var(--belum-bg);  color: var(--belum); }
+
+    /* ── Card form ───────────────────────────────────────────── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .card h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    /* ── Field ───────────────────────────────────────────────── */
+    .field { margin-bottom: 18px; }
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .field label span { color: #c0392b; margin-left: 2px; }
+
+    select, input[type="file"] {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--surface);
+      appearance: none;
+      transition: border-color 0.18s;
+      outline: none;
+    }
+    select:focus, input[type="file"]:focus {
+      border-color: var(--accent);
+    }
+    .select-wrap {
+      position: relative;
+    }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-muted);
+      pointer-events: none;
+      font-size: 13px;
+    }
+
+    /* ── Upload area ─────────────────────────────────────────── */
+    .upload-area {
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--surface);
+      position: relative;
+    }
+    .upload-area:hover, .upload-area.dragover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+    .upload-icon { font-size: 28px; margin-bottom: 6px; }
+    .upload-area p { font-size: 13px; color: var(--ink-muted); }
+    .upload-area .upload-hint { font-size: 11.5px; margin-top: 4px; }
+    .preview-wrap { display: none; margin-top: 12px; }
+    .preview-wrap img {
+      max-height: 160px;
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      object-fit: contain;
+    }
+    .preview-name {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: 6px;
+    }
+
+    /* ── Submit button ───────────────────────────────────────── */
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.1s;
+      margin-top: 4px;
+    }
+    .btn-submit:hover:not(:disabled) { background: #2d4a6e; }
+    .btn-submit:active:not(:disabled) { transform: scale(0.99); }
+    .btn-submit:disabled { background: #9baaba; cursor: not-allowed; }
+
+    /* ── Toast ───────────────────────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--ink);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      max-width: 340px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 100;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast.success { background: var(--lunas); }
+    .toast.error   { background: #c0392b; }
+
+    /* ── Loading overlay ─────────────────────────────────────── */
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(247,246,242,0.85);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .loading-overlay.show { display: flex; }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-overlay p { font-size: 14px; color: var(--ink-muted); }
+
+    /* ── Nomor rekening ──────────────────────────────────────── */
+    .rekening-box {
+      background: var(--accent-light);
+      border: 1px solid #c5d5e8;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--accent);
+      line-height: 1.7;
+    }
+    .rekening-box strong { color: var(--ink); }
+
+    @media (max-width: 400px) {
+      .status-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">KKN IPB University</div>
+  <h1>Form Pembayaran Kas</h1>
+  <p>Kirim bukti transfer untuk konfirmasi pembayaran</p>
+</header>
+
+<div class="container">
+
+  <!-- Info rekening -->
+  <div class="rekening-box">
+    <strong>Tujuan Transfer:</strong><br>
+    💳 Blu by BCA — <strong>0005 1124 5600</strong><br>
+    📱 GoPay — <strong>085861833709</strong>
+  </div>
+
+  <!-- Status board -->
+  <div class="status-board" id="statusBoard">
+    <h3>Status Pembayaran</h3>
+    <div class="status-grid" id="statusGrid"></div>
+  </div>
+
+  <!-- Form card -->
+  <div class="card">
+    <h2>Kirim Bukti Pembayaran</h2>
+
+    <div class="field">
+      <label>Nama Anggota <span>*</span></label>
+      <div class="select-wrap">
+        <select id="selectNama" required>
+          <option value="">— Pilih nama kamu —</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Kategori Pembayaran <span>*</span></label>
+      <div class="select-wrap">
+        <select id="selectKategori" required>
+          <option value="">— Pilih kategori —</option>
+          <option value="vest_kkn">Vest KKN (Rp 125.000)</option>
+          <option value="makan_minggu_1">Uang Makan Minggu 1 (Rp 200.000)</option>
+          <option value="makan_minggu_2">Uang Makan Minggu 2 (Rp 200.000)</option>
+          <option value="makan_minggu_3">Uang Makan Minggu 3 (Rp 200.000)</option>
+          <option value="makan_minggu_4">Uang Makan Minggu 4 (Rp 200.000)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Bukti Transfer <span>*</span></label>
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="inputFile" accept="image/*,.pdf" />
+        <div class="upload-icon">📎</div>
+        <p>Klik atau seret foto bukti transfer di sini</p>
+        <p class="upload-hint">JPG, PNG, PDF — maks 5 MB</p>
+      </div>
+      <div class="preview-wrap" id="previewWrap">
+        <img id="previewImg" src="" alt="Preview bukti" />
+        <div class="preview-name" id="previewName"></div>
+      </div>
+    </div>
+
+    <button class="btn-submit" id="btnSubmit" type="button">Kirim Pembayaran</button>
+  </div>
+
+</div>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p>Mengirim & menyimpan bukti...</p>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── KONFIGURASI — ganti dengan URL Apps Script kamu ──────────
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSxq-YbvdxNVlk06oscKBok_DPLighA1TEbM0ZR4ZCH76aFFFZgCRBWwKl-NdTRJQP/exec';
+  // ─────────────────────────────────────────────────────────────
+
+  const LABEL_MAP = {
+    vest_kkn:       'Vest KKN',
+    makan_minggu_1: 'Makan Mgg 1',
+    makan_minggu_2: 'Makan Mgg 2',
+    makan_minggu_3: 'Makan Mgg 3',
+    makan_minggu_4: 'Makan Mgg 4',
+  };
+
+  let anggotaData = [];
+
+  // ── Load daftar nama dari Apps Script ──────────────────────
+  async function loadAnggota() {
+    try {
+      const res = await fetch(APPS_SCRIPT_URL);
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error);
+      anggotaData = data.anggota;
+
+      const sel = document.getElementById('selectNama');
+      data.anggota.forEach(a => {
+        const opt = document.createElement('option');
+        opt.value = a.nama;
+        opt.textContent = a.nama;
+        sel.appendChild(opt);
+      });
+    } catch (err) {
+      showToast('Gagal memuat daftar anggota: ' + err.message, 'error');
+    }
+  }
+
+  // ── Tampilkan status board saat nama dipilih ───────────────
+  document.getElementById('selectNama').addEventListener('change', function () {
+    const nama = this.value;
+    const board = document.getElementById('statusBoard');
+    const grid  = document.getElementById('statusGrid');
+
+    if (!nama) { board.style.display = 'none'; return; }
+
+    const anggota = anggotaData.find(a => a.nama === nama);
+    if (!anggota) return;
+
+    grid.innerHTML = '';
+    const keys = ['vest_kkn','makan_minggu_1','makan_minggu_2','makan_minggu_3','makan_minggu_4'];
+    keys.forEach(k => {
+      const status = anggota[k] || 'Belum';
+      const isLunas = status === 'Lunas';
+      grid.innerHTML += `
+        <div class="status-item">
+          <span class="label">${LABEL_MAP[k]}</span>
+          <span class="badge ${isLunas ? 'lunas' : 'belum'}">${status}</span>
+        </div>`;
+    });
+
+    board.style.display = 'block';
+  });
+
+  // ── Preview upload ─────────────────────────────────────────
+  document.getElementById('inputFile').addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      showToast('File terlalu besar. Maksimal 5 MB.', 'error');
+      this.value = '';
+      return;
+    }
+
+    document.getElementById('previewName').textContent = file.name;
+    if (file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        document.getElementById('previewImg').src = e.target.result;
+        document.getElementById('previewImg').style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    } else {
+      document.getElementById('previewImg').style.display = 'none';
+    }
+    document.getElementById('previewWrap').style.display = 'block';
+  });
+
+  // Drag & drop
+  const uploadArea = document.getElementById('uploadArea');
+  uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+  uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+  uploadArea.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      const input = document.getElementById('inputFile');
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      input.files = dt.files;
+      input.dispatchEvent(new Event('change'));
+    }
+  });
+
+  // ── Submit ─────────────────────────────────────────────────
+  document.getElementById('btnSubmit').addEventListener('click', async () => {
+    const nama      = document.getElementById('selectNama').value;
+    const kategori  = document.getElementById('selectKategori').value;
+    const fileInput = document.getElementById('inputFile');
+    const file      = fileInput.files[0];
+
+    if (!nama)     return showToast('Pilih nama kamu dulu.', 'error');
+    if (!kategori) return showToast('Pilih kategori pembayaran.', 'error');
+    if (!file)     return showToast('Upload bukti transfer dulu.', 'error');
+
+    // Cek sudah lunas?
+    const anggota = anggotaData.find(a => a.nama === nama);
+    if (anggota && anggota[kategori] === 'Lunas') {
+      return showToast(`${nama} sudah Lunas untuk kategori ini.`, 'error');
+    }
+
+    setLoading(true);
+
+    try {
+      // Convert file ke base64
+      const base64 = await fileToBase64(file);
+      const base64Data = base64.split(',')[1];
+
+      const payload = {
+        nama,
+        kategori,
+        buktiBase64:  base64Data,
+        buktiMimeType: file.type,
+        buktiFileName: file.name,
+      };
+
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        showToast('✅ ' + data.message, 'success');
+        resetForm();
+        await loadAnggota(); // refresh status
+        // trigger status board refresh
+        document.getElementById('selectNama').value = nama;
+        document.getElementById('selectNama').dispatchEvent(new Event('change'));
+      } else {
+        showToast('❌ ' + data.error, 'error');
+      }
+    } catch (err) {
+      showToast('Gagal mengirim: ' + err.message, 'error');
+    } finally {
+      setLoading(false);
+    }
+  });
+
+  // ── Helpers ────────────────────────────────────────────────
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload  = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function setLoading(on) {
+    const overlay = document.getElementById('loadingOverlay');
+    const btn     = document.getElementById('btnSubmit');
+    overlay.classList.toggle('show', on);
+    btn.disabled = on;
+    btn.textContent = on ? 'Mengirim...' : 'Kirim Pembayaran';
+  }
+
+  function resetForm() {
+    document.getElementById('selectKategori').value = '';
+    document.getElementById('inputFile').value = '';
+    document.getElementById('previewWrap').style.display = 'none';
+  }
+
+  let toastTimer;
+  function showToast(msg, type = '') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast show ' + type;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  // ── Init ───────────────────────────────────────────────────
+  loadAnggota();
+</script>
+</body>
+</html>
