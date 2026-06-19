@@ -1,10 +1,10 @@
-# 📋 Kas KKN — Panduan Setup
+# Kas KKN — Panduan Setup
 
 Web app pengumpulan bukti pembayaran kas KKN yang terhubung langsung ke Google Sheets dan Google Drive, dilengkapi OCR otomatis untuk membaca nominal dari bukti transfer.
 
 ---
 
-## 🏗️ Arsitektur
+## Arsitektur
 
 ```
 Anggota buka web → Pilih nama & kategori → Upload foto/PDF bukti
@@ -22,7 +22,7 @@ Anggota buka web → Pilih nama & kategori → Upload foto/PDF bukti
 
 ---
 
-## ⚙️ Setup (ikuti urutan ini)
+## Setup (ikuti urutan ini)
 
 ### Langkah 1 — Upload Excel ke Google Sheets
 
@@ -94,7 +94,7 @@ Anggota buka web → Pilih nama & kategori → Upload foto/PDF bukti
 
 ### Langkah 6 — Isi API Key LLM
 
-1. Di Apps Script, klik ⚙️ **Project Settings → Script Properties**
+1. Di Apps Script, klik **Project Settings → Script Properties**
 2. Tambah properti berikut:
 
    | Property | Value |
@@ -137,7 +137,7 @@ Ganti dengan URL yang disalin tadi.
 
 ---
 
-## 🔍 Cek hasil di Google Sheets
+## Cek hasil di Google Sheets
 
 Setelah anggota submit:
 - Sheet **"Pemasukan"** → kolom status berubah jadi **Lunas**, kolom tanggal terisi otomatis
