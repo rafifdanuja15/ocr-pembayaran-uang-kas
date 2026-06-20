@@ -471,11 +471,11 @@
 
     KATEGORI_OPTIONS.forEach(opt => {
       const isLunas = anggota[opt.key] === 'Lunas';
-      const item = document.createElement('label');
+      // Pakai <div> bukan <label> — cegah double-fire dari browser checkbox toggle
+      const item = document.createElement('div');
       item.className = 'kat-item' + (isLunas ? ' disabled' : '');
       item.dataset.key = opt.key;
       item.innerHTML = `
-        <input type="checkbox" value="${opt.key}" ${isLunas ? 'disabled' : ''} />
         <div class="kat-check">
           <svg width="12" height="12" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
@@ -497,15 +497,12 @@
   }
 
   function toggleKategori(key, itemEl) {
-    const cb = itemEl.querySelector('input[type="checkbox"]');
     if (selectedKats.has(key)) {
       selectedKats.delete(key);
       itemEl.classList.remove('selected');
-      cb.checked = false;
     } else {
       selectedKats.add(key);
       itemEl.classList.add('selected');
-      cb.checked = true;
     }
     updateTotal();
   }
