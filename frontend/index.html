@@ -52,335 +52,205 @@
     }
 
     /* ── Header ─────────────────────────────────────────────── */
-    header {
-      text-align: center;
-      padding: 10px 0;
-    }
+    header { text-align: center; padding: 10px 0; }
     header .eyebrow {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
     }
     header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 34px;
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.2;
+      font-family: 'Playfair Display', serif; font-size: 34px;
+      font-weight: 600; color: var(--ink); line-height: 1.2;
     }
-    header p {
-      font-size: 14px;
-      color: var(--ink-muted);
-      margin-top: 8px;
-    }
+    header p { font-size: 14px; color: var(--ink-muted); margin-top: 8px; }
 
     /* ── Card Base ───────────────────────────────────────────── */
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px;
+      box-shadow: var(--shadow-md); transition: var(--transition);
     }
     .card h2 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: var(--ink);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 18px; font-weight: 700; margin-bottom: 24px;
+      color: var(--ink); display: flex; align-items: center; gap: 8px;
     }
 
-    /* ── Info Rekening & Tab System ──────────────────────────── */
-    .rekening-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .rekening-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ink);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    /* ── Rekening & Tab System ───────────────────────────────── */
+    .rekening-container { display: flex; flex-direction: column; gap: 12px; }
+    .rekening-title { font-size: 13px; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 0.05em; }
     .method-tabs {
-      display: flex;
-      gap: 8px;
-      background: #f1f5f9;
-      padding: 4px;
-      border-radius: var(--radius-md);
+      display: flex; gap: 8px; background: #f1f5f9;
+      padding: 4px; border-radius: var(--radius-md);
     }
     .tab-btn {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      background: transparent;
-      color: var(--ink-muted);
-      transition: var(--transition);
+      flex: 1; padding: 10px; border: none; border-radius: 8px;
+      font-family: inherit; font-size: 13px; font-weight: 600;
+      cursor: pointer; background: transparent; color: var(--ink-muted); transition: var(--transition);
     }
-    .tab-btn.active {
-      background: var(--card);
-      color: var(--accent);
-      box-shadow: var(--shadow-sm);
-    }
-    .rekening-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
+    .tab-btn.active { background: var(--card); color: var(--accent); box-shadow: var(--shadow-sm); }
+    .rekening-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .rekening-item {
-      background: var(--accent-light);
-      border: 1px solid #d0e1fd;
-      border-radius: var(--radius-md);
-      padding: 14px;
-      position: relative;
-      cursor: pointer;
-      transition: var(--transition);
+      background: var(--accent-light); border: 1px solid #d0e1fd;
+      border-radius: var(--radius-md); padding: 14px; position: relative;
+      cursor: pointer; transition: var(--transition);
     }
-    .rekening-item:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-      background: #e0edff;
-    }
-    .rekening-item .bank-name {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .rekening-item .number {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--ink);
-      letter-spacing: 0.02em;
-    }
-    .rekening-item .copy-hint {
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      font-size: 12px;
-      opacity: 0.5;
-    }
-    .qris-wrapper {
-      text-align: center;
-      padding: 12px 0;
-      animation: fadeIn 0.3s ease forwards;
-    }
+    .rekening-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); background: #e0edff; }
+    .rekening-item .bank-name { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 4px; }
+    .rekening-item .number { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
+    .rekening-item .copy-hint { position: absolute; right: 12px; top: 12px; font-size: 12px; opacity: 0.5; }
+    .qris-wrapper { text-align: center; padding: 12px 0; animation: fadeIn 0.3s ease forwards; }
     .qris-box {
-      background: #fff;
-      display: inline-block;
-      padding: 16px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
+      background: #fff; display: inline-block; padding: 16px;
+      border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm);
     }
-    .qris-box img {
-      max-width: 200px;
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 6px;
-    }
+    .qris-box img { max-width: 200px; width: 100%; height: auto; display: block; border-radius: 6px; }
 
     /* ── Status Board ────────────────────────────────────────── */
     .status-board {
-      background: #f8fafc;
-      border: 1px dashed var(--border);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      margin-bottom: 24px;
-      display: none;
-      animation: fadeIn 0.4s ease forwards;
+      background: #f8fafc; border: 1px dashed var(--border);
+      border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;
+      display: none; animation: fadeIn 0.4s ease forwards;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
     .status-board h3 {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 14px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--ink-muted); margin-bottom: 14px;
     }
-    .status-grid {
-      display: grid;
-      gap: 10px;
-    }
+    .status-grid { display: grid; gap: 10px; }
     .status-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      font-size: 13px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px; border-radius: 8px; background: var(--card);
+      border: 1px solid var(--border); font-size: 13px;
     }
     .status-item .label { font-weight: 500; color: var(--ink); }
-    .badge {
-      font-size: 11.5px;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-    .badge.lunas  { background: var(--lunas-bg);  color: var(--lunas); }
-    .badge.belum  { background: var(--belum-bg);  color: var(--belum); }
+    .badge { font-size: 11.5px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+    .badge.lunas { background: var(--lunas-bg); color: var(--lunas); }
+    .badge.belum { background: var(--belum-bg); color: var(--belum); }
 
     /* ── Form Fields ─────────────────────────────────────────── */
     .field { margin-bottom: 20px; }
-    .field label {
-      display: block;
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 8px;
-    }
+    .field label { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
     .field label span { color: #ef4444; margin-left: 2px; }
 
     select {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-md);
-      font-family: inherit;
-      font-size: 14px;
-      color: var(--ink);
-      background: #f8fafc;
-      appearance: none;
-      transition: var(--transition);
-      outline: none;
-      cursor: pointer;
+      width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
+      border-radius: var(--radius-md); font-family: inherit; font-size: 14px;
+      color: var(--ink); background: #f8fafc; appearance: none;
+      transition: var(--transition); outline: none; cursor: pointer;
     }
-    select:focus {
-      border-color: var(--accent);
-      background: var(--card);
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-    }
+    select:focus { border-color: var(--accent); background: var(--card); box-shadow: 0 0 0 4px rgba(37,99,235,0.1); }
     .select-wrap { position: relative; }
     .select-wrap::after {
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='%2364748b' class='w-4 h-4'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-40%);
-      width: 14px;
-      pointer-events: none;
-      opacity: 0.8;
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
+      position: absolute; right: 16px; top: 50%; transform: translateY(-40%);
+      width: 14px; pointer-events: none; opacity: 0.8;
     }
+
+    /* ── Kategori Checklist ──────────────────────────────────── */
+    .kategori-list {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .kat-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: var(--radius-md);
+      border: 1.5px solid var(--border); background: #f8fafc;
+      cursor: pointer; transition: var(--transition); user-select: none;
+    }
+    .kat-item:hover { border-color: var(--accent); background: var(--accent-light); }
+    .kat-item.selected { border-color: var(--accent); background: var(--accent-light); }
+    .kat-item.disabled {
+      opacity: 0.45; cursor: not-allowed;
+      background: #f1f5f9; border-color: var(--border);
+    }
+    .kat-item input[type="checkbox"] { display: none; }
+    .kat-check {
+      width: 20px; height: 20px; flex-shrink: 0;
+      border: 2px solid #cbd5e1; border-radius: 6px;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+    }
+    .kat-item.selected .kat-check {
+      background: var(--accent); border-color: var(--accent);
+    }
+    .kat-check svg { display: none; }
+    .kat-item.selected .kat-check svg { display: block; }
+    .kat-info { flex: 1; }
+    .kat-name { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+    .kat-nominal { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+    .kat-badge-lunas {
+      font-size: 11px; font-weight: 700; padding: 3px 10px;
+      border-radius: 20px; background: var(--lunas-bg); color: var(--lunas);
+      white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* ── Total Ringkasan ─────────────────────────────────────── */
+    .total-box {
+      display: none; margin-top: 12px; padding: 14px 16px;
+      background: #fff; border: 1.5px solid var(--accent);
+      border-radius: var(--radius-md); animation: fadeIn 0.3s ease forwards;
+    }
+    .total-box-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .total-label { font-size: 13px; font-weight: 600; color: var(--ink-muted); }
+    .total-label span { display: block; font-size: 11px; color: var(--ink-muted); font-weight: 400; margin-top: 2px; }
+    .total-amount { font-size: 20px; font-weight: 700; color: var(--accent); }
+    .total-items { font-size: 12px; color: var(--ink-muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
 
     /* ── Upload Area ─────────────────────────────────────────── */
     .upload-area {
-      border: 2px dashed #cbd5e1;
-      border-radius: var(--radius-md);
-      padding: 28px 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: var(--transition);
-      background: #f8fafc;
-      position: relative;
+      border: 2px dashed #cbd5e1; border-radius: var(--radius-md);
+      padding: 28px 20px; text-align: center; cursor: pointer;
+      transition: var(--transition); background: #f8fafc; position: relative;
     }
-    .upload-area:hover, .upload-area.dragover {
-      border-color: var(--accent);
-      background: var(--accent-light);
-    }
-    .upload-area input[type="file"] {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-    }
+    .upload-area:hover, .upload-area.dragover { border-color: var(--accent); background: var(--accent-light); }
+    .upload-area input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
     .upload-icon {
-      width: 40px;
-      height: 40px;
-      background: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 12px;
-      box-shadow: var(--shadow-sm);
-      color: var(--accent);
+      width: 40px; height: 40px; background: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px; box-shadow: var(--shadow-sm); color: var(--accent);
     }
     .upload-area p { font-size: 13.5px; font-weight: 500; color: var(--ink); }
     .upload-area .upload-hint { font-size: 12px; color: var(--ink-muted); margin-top: 4px; }
-    
-    .preview-wrap { 
-      display: none; 
-      margin-top: 16px; 
-      padding: 12px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+    .preview-wrap {
+      display: none; margin-top: 16px; padding: 12px;
+      background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-md);
     }
-    .preview-wrap img {
-      max-height: 180px;
-      width: 100%;
-      border-radius: 8px;
-      object-fit: contain;
-      background: #fff;
+    .preview-wrap img { max-height: 180px; width: 100%; border-radius: 8px; object-fit: contain; background: #fff; }
+    .preview-name { font-size: 12.5px; font-weight: 500; color: var(--ink-muted); margin-top: 8px; text-align: center; word-break: break-all; }
+
+    /* ── Info hint transfer total ────────────────────────────── */
+    .transfer-hint {
+      display: none; margin-top: 10px; padding: 10px 14px;
+      background: #fffbeb; border: 1px solid #fcd34d;
+      border-radius: var(--radius-md); font-size: 12.5px; color: #92400e;
+      line-height: 1.5;
     }
-    .preview-name {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: var(--ink-muted);
-      margin-top: 8px;
-      text-align: center;
-      word-break: break-all;
-    }
+    .transfer-hint strong { font-weight: 700; }
 
     /* ── Submit Button ───────────────────────────────────────── */
     .btn-submit {
-      width: 100%;
-      padding: 14px;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius-md);
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      margin-top: 8px;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+      width: 100%; padding: 14px; background: var(--accent); color: #fff;
+      border: none; border-radius: var(--radius-md); font-family: inherit;
+      font-size: 15px; font-weight: 600; cursor: pointer; transition: var(--transition);
+      margin-top: 8px; box-shadow: 0 4px 12px rgba(37,99,235,0.2);
     }
-    .btn-submit:hover:not(:disabled) { 
-      background: var(--accent-hover); 
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    .btn-submit:hover:not(:disabled) {
+      background: var(--accent-hover); transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37,99,235,0.3);
     }
     .btn-submit:active:not(:disabled) { transform: translateY(1px); }
     .btn-submit:disabled { background: #cbd5e1; color: #94a3b8; box-shadow: none; cursor: not-allowed; }
 
     /* ── Toast Notification ──────────────────────────────────── */
     .toast {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
+      position: fixed; bottom: 32px; left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: #0f172a;
-      color: #fff;
-      padding: 14px 24px;
-      border-radius: var(--radius-md);
-      font-size: 14px;
-      font-weight: 500;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
+      background: #0f172a; color: #fff; padding: 14px 24px;
+      border-radius: var(--radius-md); font-size: 14px; font-weight: 500;
+      max-width: 400px; width: 90%; text-align: center;
       box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       z-index: 100;
@@ -391,27 +261,20 @@
 
     /* ── Loading Overlay ─────────────────────────────────────── */
     .loading-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(4px);
-      z-index: 150;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 16px;
+      display: none; position: fixed; inset: 0;
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);
+      z-index: 150; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
     }
     .loading-overlay.show { display: flex; }
     .spinner {
-      width: 48px; height: 48px;
-      border: 4.5px solid #e2e8f0;
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      width: 48px; height: 48px; border: 4.5px solid #e2e8f0;
+      border-top-color: var(--accent); border-radius: 50%;
+      animation: spin 0.8s cubic-bezier(0.4,0,0.2,1) infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
     .loading-overlay p { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .loading-overlay small { font-size: 12px; color: var(--ink-muted); }
 
     @media (max-width: 480px) {
       body { padding: 20px 16px; }
@@ -431,19 +294,18 @@
     <p>Kirim bukti transfer untuk konfirmasi pembayaran secara instan</p>
   </header>
 
+  <!-- Info Rekening -->
   <div class="card" style="padding: 20px; box-shadow: var(--shadow-sm);">
     <div class="rekening-container">
       <div class="rekening-title">Pilih Metode Pembayaran</div>
-      
       <div class="method-tabs">
         <button type="button" id="tabTransfer" class="tab-btn active" onclick="switchMethod('transfer')">
-          💳 Transfer Rekening / E-Wallet
+          💳 Transfer / E-Wallet
         </button>
         <button type="button" id="tabQris" class="tab-btn" onclick="switchMethod('qris')">
           📱 Scan QRIS
         </button>
       </div>
-
       <div id="contentTransfer" class="rekening-grid">
         <div class="rekening-item" onclick="copyToClipboard('000511245600', 'Nomor rekening Blu')">
           <div class="bank-name">Blu by BCA</div>
@@ -456,29 +318,33 @@
           <span class="copy-hint">📋</span>
         </div>
       </div>
-
       <div id="contentQris" class="qris-wrapper" style="display: none;">
         <div class="qris-box">
           <img src="qris.jpeg" alt="QRIS" />
         </div>
         <p style="font-size: 12px; color: var(--ink-muted); margin-top: 12px; font-weight: 500;">
-          Silakan screenshot dan scan melalui aplikasi M-Banking atau dompet digital kamu.
+          Screenshot lalu scan via M-Banking atau dompet digital kamu.
         </p>
       </div>
     </div>
   </div>
 
+  <!-- Form Utama -->
   <div class="card">
     <h2>
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin='round' d='M12 4.5v15m7.5-7.5h-15'/></svg>
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+      </svg>
       Kirim Bukti Pembayaran
     </h2>
 
+    <!-- Status board -->
     <div class="status-board" id="statusBoard">
       <h3>Ringkasan Status Kamu:</h3>
       <div class="status-grid" id="statusGrid"></div>
     </div>
 
+    <!-- Pilih Nama -->
     <div class="field">
       <label>Nama Anggota <span>*</span></label>
       <div class="select-wrap">
@@ -488,26 +354,43 @@
       </div>
     </div>
 
+    <!-- Pilih Kategori (multi-checkbox) -->
     <div class="field">
-      <label>Kategori Pembayaran <span>*</span></label>
-      <div class="select-wrap">
-        <select id="selectKategori" required>
-          <option value="">— Pilih kategori —</option>
-          <option value="vest_kkn">Vest KKN (Rp 125.000)</option>
-          <option value="makan_minggu_1">Uang Makan Minggu 1 (Rp 200.000)</option>
-          <option value="makan_minggu_2">Uang Makan Minggu 2 (Rp 200.000)</option>
-          <option value="makan_minggu_3">Uang Makan Minggu 3 (Rp 200.000)</option>
-          <option value="makan_minggu_4">Uang Makan Minggu 4 (Rp 200.000)</option>
-        </select>
+      <label>Kategori Pembayaran <span>*</span> <span style="font-weight:400; color:var(--ink-muted); font-size:12px;">(bisa pilih lebih dari satu)</span></label>
+      <div class="kategori-list" id="kategoriList">
+        <!-- diisi JS setelah nama dipilih -->
+        <div style="padding: 12px 14px; color: var(--ink-muted); font-size: 13px; border: 1.5px dashed var(--border); border-radius: var(--radius-md); text-align: center;">
+          Pilih nama terlebih dahulu
+        </div>
+      </div>
+
+      <!-- Total ringkasan -->
+      <div class="total-box" id="totalBox">
+        <div class="total-box-inner">
+          <div class="total-label">
+            Total Transfer
+            <span id="totalKatCount"></span>
+          </div>
+          <div class="total-amount" id="totalAmount">Rp 0</div>
+        </div>
+        <div class="total-items" id="totalItems"></div>
+      </div>
+
+      <!-- Hint transfer -->
+      <div class="transfer-hint" id="transferHint">
+        ⚠️ Transfer <strong id="hintAmount"></strong> dalam <strong>satu transaksi</strong> ke salah satu rekening di atas, lalu upload buktinya.
       </div>
     </div>
 
+    <!-- Upload Bukti -->
     <div class="field">
       <label>Bukti Transfer <span>*</span></label>
       <div class="upload-area" id="uploadArea">
         <input type="file" id="inputFile" accept="image/*,.pdf" />
         <div class="upload-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 0l-3.536 3.536m3.536-3.536L6.515 16.238M13 3.5a1.5 1.5 0 013 0c0 .414-.168.789-.439 1.061l-5.657 5.656a4.5 4.5 0 006.364 6.364l5.657-5.657a7.5 7.5 0 00-10.607-10.607l-5.656 5.657a10.5 10.5 0 0014.85 14.85l3.182-3.182"/></svg>
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+          </svg>
         </div>
         <p>Klik atau seret bukti transfer ke sini</p>
         <p class="upload-hint">JPG, PNG, PDF — maksimal 5 MB</p>
@@ -525,7 +408,8 @@
 
 <div class="loading-overlay" id="loadingOverlay">
   <div class="spinner"></div>
-  <p>Memproses data & mengunggah bukti...</p>
+  <p>Memproses & mengunggah bukti...</p>
+  <small>OCR + verifikasi nominal sedang berjalan</small>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -533,49 +417,36 @@
 <script>
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSxq-YbvdxNVlk06oscKBok_DPLighA1TEbM0ZR4ZCH76aFFFZgCRBWwKl-NdTRJQP/exec';
 
-  const LABEL_MAP = {
-    vest_kkn:       'Vest KKN',
-    makan_minggu_1: 'Makan Minggu 1',
-    makan_minggu_2: 'Makan Minggu 2',
-    makan_minggu_3: 'Makan Minggu 3',
-    makan_minggu_4: 'Makan Minggu 4',
-  };
+  const KATEGORI_OPTIONS = [
+    { key: 'vest_kkn',       label: 'Vest KKN',         nominal: 125000 },
+    { key: 'makan_minggu_1', label: 'Uang Makan Minggu 1', nominal: 200000 },
+    { key: 'makan_minggu_2', label: 'Uang Makan Minggu 2', nominal: 200000 },
+    { key: 'makan_minggu_3', label: 'Uang Makan Minggu 3', nominal: 200000 },
+    { key: 'makan_minggu_4', label: 'Uang Makan Minggu 4', nominal: 200000 },
+  ];
 
-  let anggotaData = [];
+  let anggotaData  = [];
+  let selectedKats = new Set(); // kategori yang dicentang
 
-  // Toggle Metode Pembayaran (Transfer vs QRIS)
+  // ── Metode Pembayaran ────────────────────────────────────────
   function switchMethod(method) {
-    const tabTransfer = document.getElementById('tabTransfer');
-    const tabQris = document.getElementById('tabQris');
-    const contentTransfer = document.getElementById('contentTransfer');
-    const contentQris = document.getElementById('contentQris');
-
-    if (method === 'qris') {
-      tabQris.classList.add('active');
-      tabTransfer.classList.remove('active');
-      contentQris.style.display = 'block';
-      contentTransfer.style.display = 'none';
-    } else {
-      tabTransfer.classList.add('active');
-      tabQris.classList.remove('active');
-      contentTransfer.style.display = 'grid';
-      contentQris.style.display = 'none';
-    }
+    const isQris = method === 'qris';
+    document.getElementById('tabQris').classList.toggle('active', isQris);
+    document.getElementById('tabTransfer').classList.toggle('active', !isQris);
+    document.getElementById('contentQris').style.display    = isQris ? 'block' : 'none';
+    document.getElementById('contentTransfer').style.display = isQris ? 'none'  : 'grid';
   }
 
-  // Copy to clipboard helper
   function copyToClipboard(text, message) {
-    navigator.clipboard.writeText(text).then(() => {
-      showToast(`📋 ${message} berhasil disalin!`, 'success');
-    }).catch(() => {
-      showToast('Gagal menyalin text', 'error');
-    });
+    navigator.clipboard.writeText(text)
+      .then(() => showToast(`📋 ${message} berhasil disalin!`, 'success'))
+      .catch(() => showToast('Gagal menyalin text', 'error'));
   }
 
-  // Load daftar nama dari Apps Script
+  // ── Load Anggota ─────────────────────────────────────────────
   async function loadAnggota() {
     try {
-      const res = await fetch(APPS_SCRIPT_URL);
+      const res  = await fetch(APPS_SCRIPT_URL);
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
       anggotaData = data.anggota;
@@ -584,8 +455,7 @@
       sel.innerHTML = '<option value="">— Pilih nama kamu —</option>';
       data.anggota.forEach(a => {
         const opt = document.createElement('option');
-        opt.value = a.nama;
-        opt.textContent = a.nama;
+        opt.value = a.nama; opt.textContent = a.nama;
         sel.appendChild(opt);
       });
     } catch (err) {
@@ -593,26 +463,117 @@
     }
   }
 
-  // Tampilkan status board saat nama dipilih
+  // ── Render Checklist Kategori ─────────────────────────────────
+  function renderKategoriList(anggota) {
+    const container = document.getElementById('kategoriList');
+    selectedKats.clear();
+    container.innerHTML = '';
+
+    KATEGORI_OPTIONS.forEach(opt => {
+      const isLunas = anggota[opt.key] === 'Lunas';
+      const item = document.createElement('label');
+      item.className = 'kat-item' + (isLunas ? ' disabled' : '');
+      item.dataset.key = opt.key;
+      item.innerHTML = `
+        <input type="checkbox" value="${opt.key}" ${isLunas ? 'disabled' : ''} />
+        <div class="kat-check">
+          <svg width="12" height="12" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+        </div>
+        <div class="kat-info">
+          <div class="kat-name">${opt.label}</div>
+          <div class="kat-nominal">Rp ${opt.nominal.toLocaleString('id-ID')}</div>
+        </div>
+        ${isLunas ? '<span class="kat-badge-lunas">✓ Lunas</span>' : ''}
+      `;
+
+      if (!isLunas) {
+        item.addEventListener('click', () => toggleKategori(opt.key, item));
+      }
+
+      container.appendChild(item);
+    });
+  }
+
+  function toggleKategori(key, itemEl) {
+    const cb = itemEl.querySelector('input[type="checkbox"]');
+    if (selectedKats.has(key)) {
+      selectedKats.delete(key);
+      itemEl.classList.remove('selected');
+      cb.checked = false;
+    } else {
+      selectedKats.add(key);
+      itemEl.classList.add('selected');
+      cb.checked = true;
+    }
+    updateTotal();
+  }
+
+  // ── Hitung & Tampilkan Total ──────────────────────────────────
+  function updateTotal() {
+    const totalBox     = document.getElementById('totalBox');
+    const transferHint = document.getElementById('transferHint');
+
+    if (selectedKats.size === 0) {
+      totalBox.style.display     = 'none';
+      transferHint.style.display = 'none';
+      return;
+    }
+
+    let total      = 0;
+    const labels   = [];
+    selectedKats.forEach(k => {
+      const opt = KATEGORI_OPTIONS.find(o => o.key === k);
+      total += opt.nominal;
+      labels.push(opt.label);
+    });
+
+    const fmtTotal = 'Rp ' + total.toLocaleString('id-ID');
+
+    document.getElementById('totalAmount').textContent  = fmtTotal;
+    document.getElementById('totalKatCount').textContent = `${selectedKats.size} kategori dipilih`;
+    document.getElementById('totalItems').textContent    = labels.join(' + ');
+    totalBox.style.display = 'block';
+
+    document.getElementById('hintAmount').textContent   = fmtTotal;
+    transferHint.style.display = 'block';
+  }
+
+  // ── Pilih Nama → Render status + kategori ───────────────────
   document.getElementById('selectNama').addEventListener('change', function () {
-    const nama = this.value;
+    const nama  = this.value;
     const board = document.getElementById('statusBoard');
     const grid  = document.getElementById('statusGrid');
 
-    if (!nama) { board.style.display = 'none'; return; }
+    if (!nama) {
+      board.style.display = 'none';
+      document.getElementById('kategoriList').innerHTML = `
+        <div style="padding:12px 14px; color:var(--ink-muted); font-size:13px; border:1.5px dashed var(--border); border-radius:var(--radius-md); text-align:center;">
+          Pilih nama terlebih dahulu
+        </div>`;
+      document.getElementById('totalBox').style.display     = 'none';
+      document.getElementById('transferHint').style.display = 'none';
+      return;
+    }
 
     const anggota = anggotaData.find(a => a.nama === nama);
     if (!anggota) return;
 
-    grid.innerHTML = '';
+    // Status board
     const keys = ['vest_kkn','makan_minggu_1','makan_minggu_2','makan_minggu_3','makan_minggu_4'];
-    
+    const LABEL_MAP = {
+      vest_kkn: 'Vest KKN', makan_minggu_1: 'Makan Minggu 1',
+      makan_minggu_2: 'Makan Minggu 2', makan_minggu_3: 'Makan Minggu 3',
+      makan_minggu_4: 'Makan Minggu 4',
+    };
+    grid.innerHTML = '';
     grid.style.display = 'grid';
     grid.style.gridTemplateColumns = window.innerWidth > 400 ? '1fr 1fr' : '1fr';
     grid.style.gap = '8px';
 
     keys.forEach(k => {
-      const status = anggota[k] || 'Belum';
+      const status  = anggota[k] || 'Belum';
       const isLunas = status === 'Lunas';
       grid.innerHTML += `
         <div class="status-item">
@@ -620,21 +581,22 @@
           <span class="badge ${isLunas ? 'lunas' : 'belum'}">${status}</span>
         </div>`;
     });
-
     board.style.display = 'block';
+
+    // Render checklist kategori
+    renderKategoriList(anggota);
+    document.getElementById('totalBox').style.display     = 'none';
+    document.getElementById('transferHint').style.display = 'none';
   });
 
-  // Preview upload
+  // ── Preview upload ────────────────────────────────────────────
   document.getElementById('inputFile').addEventListener('change', function () {
     const file = this.files[0];
     if (!file) return;
-
     if (file.size > 5 * 1024 * 1024) {
       showToast('File terlalu besar. Maksimal 5 MB.', 'error');
-      this.value = '';
-      return;
+      this.value = ''; return;
     }
-
     document.getElementById('previewName').textContent = file.name;
     if (file.type.startsWith('image/')) {
       const reader = new FileReader();
@@ -649,64 +611,61 @@
     document.getElementById('previewWrap').style.display = 'block';
   });
 
-  // Drag & drop
+  // Drag & Drop
   const uploadArea = document.getElementById('uploadArea');
   uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
   uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
   uploadArea.addEventListener('drop', e => {
-    e.preventDefault();
-    uploadArea.classList.remove('dragover');
+    e.preventDefault(); uploadArea.classList.remove('dragover');
     const file = e.dataTransfer.files[0];
     if (file) {
       const input = document.getElementById('inputFile');
-      const dt = new DataTransfer();
-      dt.items.add(file);
+      const dt = new DataTransfer(); dt.items.add(file);
       input.files = dt.files;
       input.dispatchEvent(new Event('change'));
     }
   });
 
-  // Submit
+  // ── Submit ────────────────────────────────────────────────────
   document.getElementById('btnSubmit').addEventListener('click', async () => {
     const nama      = document.getElementById('selectNama').value;
-    const kategori  = document.getElementById('selectKategori').value;
     const fileInput = document.getElementById('inputFile');
     const file      = fileInput.files[0];
+    const kategoriArr = Array.from(selectedKats);
 
-    if (!nama)     return showToast('Pilih nama kamu dulu.', 'error');
-    if (!kategori) return showToast('Pilih kategori pembayaran.', 'error');
-    if (!file)     return showToast('Upload bukti transfer dulu.', 'error');
+    if (!nama)              return showToast('Pilih nama kamu dulu.', 'error');
+    if (kategoriArr.length === 0) return showToast('Pilih minimal satu kategori pembayaran.', 'error');
+    if (!file)              return showToast('Upload bukti transfer dulu.', 'error');
 
-    const anggota = anggotaData.find(a => a.nama === nama);
-    if (anggota && anggota[kategori] === 'Lunas') {
-      return showToast(`${nama} sudah Lunas untuk kategori ini.`, 'error');
-    }
+    // Hitung total untuk konfirmasi
+    let total = 0;
+    kategoriArr.forEach(k => {
+      const opt = KATEGORI_OPTIONS.find(o => o.key === k);
+      total += opt.nominal;
+    });
 
     setLoading(true);
 
     try {
-      const base64 = await fileToBase64(file);
+      const base64     = await fileToBase64(file);
       const base64Data = base64.split(',')[1];
 
       const payload = {
         nama,
-        kategori,
-        buktiBase64:  base64Data,
+        kategori:      kategoriArr,          // array, bukan string
+        buktiBase64:   base64Data,
         buktiMimeType: file.type,
         buktiFileName: file.name,
       };
 
-      const res = await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify(payload),
-      });
+      const res  = await fetch(APPS_SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) });
       const data = await res.json();
 
       if (data.success) {
         showToast('✅ ' + data.message, 'success');
         resetForm();
-        await loadAnggota(); 
-        
+        await loadAnggota();
+        // Re-select nama & tampilkan status terbaru
         document.getElementById('selectNama').value = nama;
         document.getElementById('selectNama').dispatchEvent(new Event('change'));
       } else {
@@ -729,17 +688,18 @@
   }
 
   function setLoading(on) {
-    const overlay = document.getElementById('loadingOverlay');
-    const btn     = document.getElementById('btnSubmit');
-    overlay.classList.toggle('show', on);
-    btn.disabled = on;
+    document.getElementById('loadingOverlay').classList.toggle('show', on);
+    const btn = document.getElementById('btnSubmit');
+    btn.disabled    = on;
     btn.textContent = on ? 'Mengirim...' : 'Kirim Pembayaran';
   }
 
   function resetForm() {
-    document.getElementById('selectKategori').value = '';
-    document.getElementById('inputFile').value = '';
-    document.getElementById('previewWrap').style.display = 'none';
+    selectedKats.clear();
+    document.getElementById('inputFile').value            = '';
+    document.getElementById('previewWrap').style.display  = 'none';
+    document.getElementById('totalBox').style.display     = 'none';
+    document.getElementById('transferHint').style.display = 'none';
   }
 
   let toastTimer;
@@ -748,7 +708,7 @@
     t.textContent = msg;
     t.className = 'toast show ' + type;
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => t.classList.remove('show'), 4000);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 4500);
   }
 
   loadAnggota();
